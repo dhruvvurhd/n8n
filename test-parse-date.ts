@@ -1,4 +1,10 @@
-import { parseDate } from './packages/nodes-base/nodes/DateTime/V2/GenericFunctions'; // adjust the relative path
+import { parseDate } from './packages/nodes-base/nodes/DateTime/V2/GenericFunctions'; /**
+ * Runs parseDate with a mocked node context for a single test case and logs the formatted result or error.
+ *
+ * @param label - Descriptive name printed with the test result
+ * @param input - Value passed to `parseDate` (for example, a date string)
+ * @param options - Options passed to `parseDate` (may include `timezone`)
+ */
 
 function testCase(label: string, input: any, options: any = {}): void {
 	try {

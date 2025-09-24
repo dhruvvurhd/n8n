@@ -2,6 +2,16 @@ import { DateTime } from 'luxon';
 import { NodeOperationError } from 'n8n-workflow';
 import type { IExecuteFunctions } from 'n8n-workflow';
 
+/**
+ * Parse various date representations into a Luxon DateTime, applying an optional timezone or custom format.
+ *
+ * @param date - A date input: a Luxon `DateTime`, native `Date`, numeric timestamp (seconds or milliseconds), or a string (ISO, `YYYY-MM-DD`, or a format matched by `options.fromFormat`).
+ * @param options - Optional parsing options.
+ * @param options.timezone - Zone identifier to apply to the parsed result; if omitted, the node's configured timezone is used.
+ * @param options.fromFormat - A Luxon format string to parse `date` when it is a formatted string.
+ * @returns The parsed Luxon `DateTime` in the resolved zone.
+ * @throws {NodeOperationError} When the input is null/undefined or of an unsupported type, when a numeric timestamp is invalid, when a string is empty or cannot be parsed, or when the resulting DateTime is invalid.
+ */
 export function parseDate(
 	this: IExecuteFunctions,
 	date: string | number | Date | DateTime,
